@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+body, button {font-family: 'Courier New';}
+q {font-size: 14px;}
+ul {list-style-type: none;}
+.clicker {flex: 35%;}
+.store {flex: 65%;}
+#clickers, #upgrades {flex: 50%;}
+#clickers div {margin-right: 5px;}
+#upgrades div {margin-left: 5px;}
+#internet, #internetOwned,
+#internetUpgrade_satellites_container,
+#internetUpgrade_websites_container,
+#internetUpgrade_computers_container,
+#internetUpgrade_users_container,
+#internetUpgrade_you_container {display: none;}
+
+body, .scroll-container div {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.game, #items {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.scroll-container {
+	height: 300px;
+	overflow-y: auto;
+}
+
+.scroll-container div {
+	border: 1px solid black;
+	margin-top: 10px;
+	padding-bottom: 20px;
+}
+
+@media screen and (max-width: 850px) {
+	#items {
+		flex-direction: column;
+	}
+
+	#clickers div {
+		margin-right: 0;
+	}
+
+	#upgrades div {
+		margin-left: 0;
+	}
+}
+
+@media screen and (max-width: 750px) {
+	.game {
+		flex-direction: column;
+	}
+}
