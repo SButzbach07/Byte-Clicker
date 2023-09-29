@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<title>Byte Clicker</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/style.css">
+		<link rel="icon" href="/Byte Clicker.png">
+	</head>
+	<body>
+		<noscript>Please enable JavaScript to play this game.</noscript>
+		<h1>Byte Clicker</h1>
+		<p>Licensed under MIT license. Terms on Replit project page.</p>
+		<hr>
+		<div class="game">
+			<div class="clicker">
+				<h2>Clicker</h2>
+				<button onclick="clicker('button')" style="padding:15px 20px;">Click Me!</button>
+				<p>
+					<span id="bytes" style="font-weight:bold;">0 bytes</span><br><br>
+					<span id="bytesPerButtonClick">1 byte</span>/click<br>
+					<span id="bytesPerSecond">0 bytes</span>/sec<br><br>
+					Button multiplier: <span id="buttonMultiplier">1</span>x<br>
+					&quot;Everything&quot; multiplier: <span id="everythingMultiplier">1</span>x
+				</p>
+				<div id="clickersOwned">
+					<p><i>Clickers Owned</i></p>
+					<ul>
+						<li>Auto Clicker: <span id="clicker_autoClicker_owned">0</span></li>
+						<li>ASCII Character: <span id="clicker_asciiCharacter_owned">0</span></li>
+						<li>Text Document: <span id="clicker_textDocument_owned">0</span></li>
+						<li>Email: <span id="clicker_email_owned">0</span></li>
+						<li>Picture: <span id="clicker_picture_owned">0</span></li>
+						<li>Music Track: <span id="clicker_musicTrack_owned">0</span></li>
+						<li>Program: <span id="clicker_program_owned">0</span></li>
+						<li>Video: <span id="clicker_video_owned">0</span></li>
+						<li>PDF Document: <span id="clicker_pdfDocument_owned">0</span></li>
+						<li>Web Server: <span id="clicker_webServer_owned">0</span></li>
+						<li>Content Delivery Network: <span id="clicker_contentDeliveryNetwork_owned">0</span></li>
+					</ul>
+				</div>
+				<div id="internetOwned">
+					<p><b>The Internet</b></p>
+					<ul>
+						<li>Gives <span id="internetClicker_theInternet_bps">1 zetabyte</span> per second.</li>
+						<li>Owned: <span id="internetClicker_theInternet_owned">No</span></li>
+						<li>Multiplier: <span id="internetClicker_theInternet_multiplier">1</span>x</li>
+					</ul>
+				</div>
+			</div>
+			<div class="store">
+				<h2>Store</h2>
+				<p id="purchaseStatus">&nbsp;</p>
+				<div id="items">
+					<div id="clickers">
+						<p><i>Clickers</i></p>
+						<div class="scroll-container">
+							<div>
+								<h3>Auto Clicker</h3>
+								<p>
+									<i><q>A primitive auto clicker you rigged that barely functions.</q></i><br><br>
+									Gives 0.1 bytes per second.<br>
+									Price: <span id="clicker_autoClicker_price">25 bytes</span><br>
+									Multiplier: <span id="clicker_autoClicker_multiplier">1</span>x<br>
+								</p>
+								<button onclick="autoClicker.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>ASCII Character</h3>
+								<p>
+									<i><q>A single character, like the thousands you see on your computer screen right now.</q></i><br><br>
+									Gives 1 byte per second.<br>
+									Price: <span id="clicker_asciiCharacter_price">100 bytes</span><br>
+									Multiplier: <span id="clicker_asciiCharacter_multiplier">1</span>x<br>
+								</p>
+								<button onclick="asciiCharacter.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Text Document</h3>
+								<p>
+									<i><q>You got bored after entering a few characters, and saved the file to your junk folder.</q></i><br><br>
+									Gives 10 bytes per second.<br>
+									Price: <span id="clicker_textDocument_price">1 kilobyte</span><br>
+									Multiplier: <span id="clicker_textDocument_multiplier">1</span>x<br>
+								</p>
+								<button onclick="textDocument.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Email</h3>
+								<p>
+									<i><q>BRO! STOP SENDING ME SPAM!</q></i><br><br>
+									Gives 100 bytes per second.<br>
+									Price: <span id="clicker_email_price">10 kilobytes</span><br>
+									Multiplier: <span id="clicker_email_multiplier">1</span>x<br>
+								</p>
+								<button onclick="email.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Picture</h3>
+								<p>
+									<i><q>An average quality JPEG taken from your old digital camera.</q></i><br><br>
+									Gives 500 bytes per second.<br>
+									Price: <span id="clicker_picture_price">50 kilobyte</span><br>
+									Multiplier: <span id="clicker_picture_multiplier">1</span>x<br>
+								</p>
+								<button onclick="picture.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Music Track</h3>
+								<p>
+									<i><q>*listens to the rickroll...on repeat*</q></i><br><br>
+									Gives 1 kilobyte per second.<br>
+									Price: <span id="clicker_musicTrack_price">100 kilobyte</span><br>
+									Multiplier: <span id="clicker_musicTrack_multiplier">1</span>x<br>
+								</p>
+								<button onclick="musicTrack.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Program</h3>
+								<p>
+									<i><q>Your attempt at recreating Notepad for Windows.</q></i><br><br>
+									Gives 5 kilobytes bytes per second.<br>
+									Price: <span id="clicker_program_price">500 kilobytes</span><br>
+									Multiplier: <span id="clicker_program_multiplier">1</span>x<br>
+								</p>
+								<button onclick="program.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Video</h3>
+								<p>
+									<i><q>That wasted ten hours out of my life, plus fifty dollars.</q></i><br><br>
+									Gives 10 kilobytes per second.<br>
+									Price: <span id="clicker_video_price">1 megabyte</span><br>
+									Multiplier: <span id="clicker_video_multiplier">1</span>x<br>
+								</p>
+								<button onclick="video.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>PDF Document</h3>
+								<p>
+									<i><q>I want to edit my PDF with Adobe Acrobat Reader.</q></i><br><br>
+									Gives 100 kilobytes per second.<br>
+									Price: <span id="clicker_pdfDocument_price">5 megabytes</span><br>
+									Multiplier: <span id="clicker_pdfDocument_multiplier">1</span>x<br>
+								</p>
+								<button onclick="pdfDocument.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Web Server</h3>
+								<p>
+									<i><q>Contains a single text file that says 'Hello, world!' Time to send it out for all the world to see!</q></i><br><br>
+									Gives 10 megabytes per second.<br>
+									Price: <span id="clicker_webServer_price">100 megabytes</span><br>
+									Multiplier: <span id="clicker_webServer_multiplier">1</span>x<br>
+								</p>
+								<button onclick="webServer.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Content Delivery Network</h3>
+								<p>
+									<i><q>Serves a JavaScript file, with a function that prints the current time.</q></i><br><br>
+									Gives 1 gigabyte per second.<br>
+									Price: <span id="clicker_contentDeliveryNetwork_price">25 gigabytes</span><br>
+									Multiplier: <span id="clicker_contentDeliveryNetwork_multiplier">1</span>x<br>
+								</p>
+								<button onclick="contentDeliveryNetwork.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>The Internet</h3>
+								<p>
+									<i><q>The best place to do whatever you want...ish.</q></i><br><br>
+									Gives 1 zettabyte per second.<br>
+									Price: 120 zettabytes</span><br>
+								</p>
+								<button onclick="theInternet.buy()">Purchase</button>
+							</div>
+						</div>
+					</div>
+					<div id="upgrades">
+						<p><i>&nbsp;Upgrades</i></p>
+						<div class="scroll-container">
+							<div>
+								<h3>Enhanced Mouse</h3>
+								<p>
+									<i><q>Your mouse is better at clicking.</q></i><br><br>
+									Every button click gives x2 bytes.<br>
+									Price: 250 bytes<br>
+									Owned: <span id="upgrade_enhancedMouse_owned">No</span>
+								</p>
+								<button id="upgrade_enhancedMouse_button" onclick="enhancedMouse.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Clicker Patch</h3>
+								<p>
+									<i><q>Finally, auto clickers are better at...clicking.</q></i><br><br>
+									Every Auto Clicker gives 2x bytes.<br>
+									Price: 500 bytes<br>
+									Owned: <span id="upgrade_clickerPatch_owned">No</span>
+								</p>
+								<button id="upgrade_clickerPatch_button" onclick="clickerPatch.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Unicode Character</h3>
+								<p>
+									<i><q>A step up from ASCII characters.</q></i><br><br>
+									Every ASCII Character gives 2x bytes.<br>
+									Price: 1 kilobyte<br>
+									Owned: <span id="upgrade_unicodeCharacter_owned">No</span>
+								</p>
+								<button id="upgrade_unicodeCharacter_button" onclick="unicodeCharacter.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Rich Text Document</h3>
+								<p>
+									<i><q>In a nutshell, styled text in a file in your junk folder.</q></i><br><br>
+									Every Text Document gives 2x bytes.<br>
+									Price: 10 kilobytes<br>
+									Owned: <span id="upgrade_richTextDocument_owned">No</span>
+								</p>
+								<button id="upgrade_richTextDocument_button" onclick="richTextDocument.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Additional Mouse</h3>
+								<p>
+									<i><q>Get someone to use your new mouse.</q></i><br><br>
+									Every button click gives 1 kilobyte.<br>
+									Price: 25 kilobytes<br>
+									Owned: <span id="upgrade_additionalMouse_owned">No</span>
+								</p>
+								<button id="upgrade_additionalMouse_button" onclick="additionalMouse.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Faster Internet Speed</h3>
+								<p>
+									<i><q>DSL is an improvement from 56k modems, but you get spam faster.</q></i><br><br>
+									Every Email gives 2x bytes.<br>
+									Price: 100 kilobytes<br>
+									Owned: <span id="upgrade_fasterInternetSpeed_owned">No</span>
+								</p>
+								<button id="upgrade_fasterInternetSpeed_button" onclick="fasterInternetSpeed.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Software Update</h3>
+								<p>
+									<i><q>Fixes a few bugs, but not really effective.</q></i><br><br>
+									Everything gives 2x bytes.<br>
+									Price: 250 kilobytes<br>
+									Owned: <span id="upgrade_softwareUpdate_owned">No</span>
+								</p>
+								<button id="upgrade_softwareUpdate_button" onclick="softwareUpdate.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Clicker Extensions</h3>
+								<p>
+									<i><q>Using your auto clicker in your browser.</q></i><br><br>
+									Every Auto Clicker gives 4x bytes.<br>
+									Price: 400 kilobytes<br>
+									Owned: <span id="upgrade_clickerExtensions_owned">No</span>
+								</p>
+								<button id="upgrade_clickerExtensions_button" onclick="clickerExtensions.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>High Quality Picture</h3>
+								<p>
+									<i><q>Converts all your JPEGs to PNGs.</q></i><br><br>
+									Every Picture gives 2x bytes.<br>
+									Price: 500 kilobytes<br>
+									Owned: <span id="upgrade_highQualityPicture_owned">No</span>
+								</p>
+								<button id="upgrade_highQualityPicture_button" onclick="highQualityPicture.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>UTF-16 Character Set</h3>
+								<p>
+									<i><q>An improvement to UTF-8.</q></i><br><br>
+									Every ASCII Character gives 4x bytes.<br>
+									Price: 750 kilobytes<br>
+									Owned: <span id="upgrade_utf16CharacterSet_owned">No</span>
+								</p>
+								<button id="upgrade_utf16CharacterSet_button" onclick="utf16CharacterSet.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Increased Bitrate</h3>
+								<p>
+									<i><q>*listens to a better version of the rickroll...on repeat*</q></i><br><br>
+									Every Music track gives 2x bytes.<br>
+									Price: 1 megabyte<br>
+									Owned: <span id="upgrade_increasedBitrate_owned">No</span>
+								</p>
+								<button id="upgrade_increasedBitrate_button" onclick="increasedBitrate.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Notepad++</h3>
+								<p>
+									<i><q>An offbrand, improved version of Notepad for Windows.</q></i><br><br>
+									Every Text Document gives 4x bytes.<br>
+									Price: 2.5 megabytes<br>
+									Owned: <span id="upgrade_notepadPP_owned">No</span>
+								</p>
+								<button id="upgrade_notepadPP_button" onclick="notepadPP.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Output Logging</h3>
+								<p>
+									<i><q>Outputs everything that is wrong with your program, including your log files.</q></i><br><br>
+									Every Program gives 2x bytes.<br>
+									Price: 5 megabytes<br>
+									Owned: <span id="upgrade_outputLogging_owned">No</span>
+								</p>
+								<button id="upgrade_outputLogging_button" onclick="outputLogging.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Increased Playback Quality</h3>
+								<p>
+									<i><q>I need a movie theater for full experience.</q></i><br><br>
+									Every Video gives 2x bytes.<br>
+									Price: 10 megabytes<br>
+									Owned: <span id="upgrade_increasedPlaybackQuality_owned">No</span>
+								</p>
+								<button id="upgrade_increasedPlaybackQuality_button" onclick="increasedPlaybackQuality.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Additional Mouse 2</h3>
+								<p>
+									<i><q>Your USB ports are full with mice.</q></i><br><br>
+									Every button click gives 1 megabyte.<br>
+									Price: 25 megabytes<br>
+									Owned: <span id="upgrade_additionalMouse2_owned">No</span>
+								</p>
+								<button id="upgrade_additionalMouse2_button" onclick="additionalMouse2.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Enhanced Mouse V2</h3>
+								<p>
+									<i><q>Your mouse is even better at clicking.</q></i><br><br>
+									Every button click gives 3x bytes.<br>
+									Price: 30 megabytes<br>
+									Owned: <span id="upgrade_enhancedMouseV2_owned">No</span>
+								</p>
+								<button id="upgrade_enhancedMouseV2_button" onclick="enhancedMouseV2.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>2-Step Verification</h3>
+								<p>
+									<i><q>More emails from services that care about my security. Finally, a break from spam...nevermind.</q></i><br><br>
+									Every Email gives 4x bytes.<br>
+									Price: 50 megabytes<br>
+									Owned: <span id="upgrade_2StepVerification_owned">No</span>
+								</p>
+								<button id="upgrade_2StepVerification_button" onclick="_2StepVerification.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Adobe Acrobat Pro</h3>
+								<p>
+									<i><q>A paid version of Adobe Acrobat Reader with more features.</q></i><br><br>
+									Every PDF Document gives 2x bytes.<br>
+									Price: 100 megabytes<br>
+									Owned: <span id="upgrade_adobeAcrobatPro_owned">No</span>
+								</p>
+								<button id="upgrade_adobeAcrobatPro_button" onclick="adobeAcrobatPro.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Adobe Photoshop</h3>
+								<p>
+									<i><q>I made it to the top of Mount Everest with only a t-shirt and shorts. Totally believable.</q></i><br><br>
+									Every Picture gives 4x bytes.<br>
+									Price: 2.5 gigabytes<br>
+									Owned: <span id="upgrade_adobePhotoshop_owned">No</span>
+								</p>
+								<button id="upgrade_adobePhotoshop_button" onclick="adobePhotoshop.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Upgraded Hosting Plan</h3>
+								<p>
+									<i><q>More money wasted to increase performance to view on one file.</q></i><br><br>
+									Every Web Server gives 2x bytes.<br>
+									Price: 10 gigabytes<br>
+									Owned: <span id="upgrade_upgradedHostingPlan_owned">No</span>
+								</p>
+								<button id="upgrade_upgradedHostingPlan_button" onclick="upgradedHostingPlan.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Additional Mouse 3</h3>
+								<p>
+									<i><q>You finally get a USB hub, just to add more mice.</q></i><br><br>
+									Every button click gives 1 gigabyte.<br>
+									Price: 50 gigabytes<br>
+									Owned: <span id="upgrade_additionalMouse3_owned">No</span>
+								</p>
+								<button id="upgrade_additionalMouse3_button" onclick="additionalMouse3.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>320 Kbps Bitrate</h3>
+								<p>
+									<i><q>*listens to the rickroll with the highest quality...on repeat*</q></i><br><br>
+									Every Music Track gives 4x bytes.<br>
+									Price: 100 gigabytes<br>
+									Owned: <span id="upgrade_320KbpsBitrate_owned">No</span>
+								</p>
+								<button id="upgrade_320KbpsBitrate_button" onclick="_320KbpsBitrate.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Visual Studio IDE</h3>
+								<p>
+									<i><q>No wonder why my program doesn't work. I have a few bugs. Too many bugs to count.</q></i><br><br>
+									Every Program gives 4x bytes.<br>
+									Price: 250 gigabytes<br>
+									Owned: <span id="upgrade_visualStudioIDE_owned">No</span>
+								</p>
+								<button id="upgrade_visualStudioIDE_button" onclick="visualStudioIDE.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Increased Storage Capacity</h3>
+								<p>
+									<i><q>I'll get the 20MB SSD, please.</q></i><br><br>
+									Everything gives 2x bytes.<br>
+									Price: 10 terabytes<br>
+									Owned: <span id="upgrade_increasedStorageCapacity_owned">No</span>
+								</p>
+								<button id="upgrade_increasedStorageCapacity_button" onclick="increasedStorageCapacity.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Virtual Mouse</h3>
+								<p>
+									<i><q>*googles a picture of a computer mouse, then tapes a broken USB cable to the screen*</q></i><br><br>
+									Every button click gives 1 terabyte.<br>
+									Price: 50 terabytes<br>
+									Owned: <span id="upgrade_virtualMouse_owned">No</span>
+								</p>
+								<button id="upgrade_virtualMouse_button" onclick="virtualMouse.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>4K UHD Quality</h3>
+								<p>
+									<i><q>My 1080p TV can't display the best quality of a one second video.</q></i><br><br>
+									Every Video gives 4x bytes.<br>
+									Price: 100 terabytes<br>
+									Owned: <span id="upgrade_4KUHDQuality_owned">No</span>
+								</p>
+								<button id="upgrade_4KUHDQuality_button" onclick="_4KUHDQuality.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>File to PDF Converter</h3>
+								<p>
+									<i><q>Converts documents, pictures, videos, programs, emails, and myself into a PDF file.</q></i><br><br>
+									Every PDF Document gives 4x bytes.<br>
+									Price: 500 terabytes<br>
+									Owned: <span id="upgrade_fileToPDFConverter_owned">No</span>
+								</p>
+								<button id="upgrade_fileToPDFConverter_button" onclick="fileToPDFConverter.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>CDN Sponsor</h3>
+								<p>
+									<i><q>Other people are willing to host my files for free.</q></i><br><br>
+									Every Content Delivery Network gives 2x bytes.<br>
+									Price: 10 petabytes<br>
+									Owned: <span id="upgrade_cdnSponsor_owned">No</span>
+								</p>
+								<button id="upgrade_cdnSponsor_button" onclick="cdnSponsor.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>HTTPS Protocol</h3>
+								<p>
+									<i><q>Using SSL, TLS, and similar protocols to securely visit the text file on the website.</q></i><br><br>
+									Every Web Server gives 4x bytes.<br>
+									Price: 25 petabytes<br>
+									Owned: <span id="upgrade_httpsProtocol_owned">No</span>
+								</p>
+								<button id="upgrade_httpsProtocol_button" onclick="httpsProtocol.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Firmware Update</h3>
+								<p>
+									<i><q>No wonder why your computer slowed down all of a sudden.</q></i><br><br>
+									Everything gives 3x bytes.<br>
+									Price: 50 petabytes<br>
+									Owned: <span id="upgrade_firmwareUpdate_owned">No</span>
+								</p>
+								<button id="upgrade_firmwareUpdate_button" onclick="firmwareUpdate.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Super Mouse (Part 1)</h3>
+								<p>
+									<i><q>The mouse that does everything...</q></i><br><br>
+									Every button click gives 10x bytes.<br>
+									Price: 100 petabytes<br>
+									Owned: <span id="upgrade_superMousePart1_owned">No</span>
+								</p>
+								<button id="upgrade_superMousePart1_button" onclick="superMousePart1.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Super Mouse (Part 2)</h3>
+								<p>
+									<i><q>...and uses another USB port.</q></i><br><br>
+									Every button click gives 1 petabyte.<br>
+									Price: 250 petabytes<br>
+									Owned: <span id="upgrade_superMousePart2_owned">No</span>
+								</p>
+								<button id="upgrade_superMousePart2_button" onclick="superMousePart2.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Hardware Upgrade</h3>
+								<p>
+									<i><q>Faster CPU, better RAM, increased storage, and better graphics. It's still a computer, but with a higher value.</q></i><br><br>
+									Everything gives 5x bytes.<br>
+									Price: 500 petabytes<br>
+									Owned: <span id="upgrade_hardwareUpgrade_owned">No</span>
+								</p>
+								<button id="upgrade_hardwareUpgrade_button" onclick="hardwareUpgrade.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Serverless Delivery</h3>
+								<p>
+									<i><q>No worry about downtime for your simple time-printing CDN.</q></i><br><br>
+									Every Content Delivery Network gives 4x bytes.<br>
+									Price: 1 exabyte<br>
+									Owned: <span id="upgrade_serverlessDelivery_owned">No</span>
+								</p>
+								<button id="upgrade_serverlessDelivery_button" onclick="serverlessDelivery.buy()">Purchase</button>
+							</div>
+							<div>
+								<h3>Server Integration</h3>
+								<p>
+									<i><q>My computer gets more powerful with Google and AWS services to complete simple calculations.</q></i><br><br>
+									Everything gives 15x bytes.<br>
+									Price: 50 exabytes<br>
+									Owned: <span id="upgrade_serverIntegration_owned">No</span>
+								</p>
+								<button id="upgrade_serverIntegration_button" onclick="serverIntegration.buy()">Purchase</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="internet">
+					<p><i>Internet Upgrades</i></p>
+					<div class="scroll-container">
+						<div id="internetUpgrade_satellites_container">
+							<h3>Satellites</h3>
+							<p>
+								<i><q>Free pictures of people, and computers!</q></i><br><br>
+								The Internet gives 100x bytes.<br>
+								Price: 1<br>
+								Owned: <span id="internetUpgrade_satellites_owned">No</span>
+							</p>
+							<button id="internetUpgrade_satellites_button" onclick="satellites.buy()">Purchase</button>
+						</div>
+						<div id="internetUpgrade_websites_container">
+							<h3>Websites</h3>
+							<p>
+								<i><q>Every holds one text file.</q></i><br><br>
+								The Internet gives 250x bytes.<br>
+								Price: 1<br>
+								Owned: <span id="internetUpgrade_websites_owned">No</span>
+							</p>
+							<button id="internetUpgrade_websites_button" onclick="websites.buy()">Purchase</button>
+						</div>
+						<div id="internetUpgrade_computers_container">
+							<h3>Computers</h3>
+							<p>
+								<i><q>The machines that perform 2+2 equations nonstop, and increase your energy bill.</q></i><br><br>
+								The Internet gives 500x bytes.<br>
+								Price: 1<br>
+								Owned: <span id="internetUpgrade_computers_owned">No</span>
+							</p>
+							<button id="internetUpgrade_computers_button" onclick="computers.buy()">Purchase</button>
+						</div>
+						<div id="internetUpgrade_users_container">
+							<h3>Users</h3>
+							<p>
+								<i><q>People who waste their time admiring 'Hello, world!' for 25 hours straight.</q></i><br><br>
+								The Internet gives 750x bytes.<br>
+								Price: 1<br>
+								Owned: <span id="internetUpgrade_users_owned">No</span>
+							</p>
+							<button id="internetUpgrade_users_button" onclick="users.buy()">Purchase</button>
+						</div>
+						<div id="internetUpgrade_you_container">
+							<h3>You</h3>
+							<p>
+								<i><q>... just you.</q></i><br><br>
+								The Internet gives 1000000x bytes.<br>
+								Price: 1<br>
+								Owned: <span id="internetUpgrade_you_owned">No</span>
+							</p>
+							<button id="internetUpgrade_you_button" onclick="you.buy()">Purchase</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<h2>Game Data</h2>
+		<button onclick="saveData()">Save Data</button>
+		<button onclick="clearData()">Clear Data</button>
+		<p id="saveStatus">&nbsp;</p>
+		<noscript>Please enable JavaScript to play this game.</noscript>
+		<script src="/script.js"></script>
+	</body>
+</html>
